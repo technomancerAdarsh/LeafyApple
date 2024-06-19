@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Leafy Apple LLP HR Solutions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+  <section class="head">
+    <div class="container flex1">
+      <h1>Leafy Apple  </h1>
+      <div class="icon">
+        <i class="fa fa-map"></i>
+        <label>Address: 270, Sector 40, Gurgaon</label>
+        <i class="fa fa-phone"></i>
+        <label>Call: +91 8882779923 </label>
+        <i class="fa fa-envelope"></i>
+        <label>Email: info@leafyapple.in</label>
+    
+  </section>
+
+
+
+  <section class="navbar">
+    <div class="container">
+      <div class="content">
+        <nav>
+          <ul id="menuitem">
+            <li class="index.html"><a href="index.html">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            
+          </ul>
+        </nav>
+        <span class="fa fa-bars" onclick="menutoggle()"></span>
+
+      
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+
+    var menuitem = document.getElementById("menuitem");
+    menuitem.style.maxHeight = "0px";
+
+    function menutoggle() {
+      if (menuitem.style.maxHeight == '0px') {
+        menuitem.style.maxHeight = "200px"
+      } else {
+        menuitem.style.maxHeight = "0px"
+      }
+    }
+
+    window.addEventListener("scroll", function() {
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky", window.scrollY > 0);
+    })
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.perk-title').forEach(item => {
+    item.addEventListener('click', () => {
+      const perkContent = item.nextElementSibling;
+      const toggleIcon = item.querySelector('.toggle-icon');
+
+      if (perkContent.style.display === 'none' || perkContent.style.display === '') {
+        perkContent.style.display = 'block';
+        toggleIcon.textContent = '-';
+      } else {
+        perkContent.style.display = 'none';
+        toggleIcon.textContent = '+';
+      }
+    });
+  });
+});
+
+
+
+//need to debug
+
+const items = document.querySelector('.service .items');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+items.addEventListener('mousedown', (e) => {
+    isDown = true;
+    items.classList.add('active');
+    startX = e.pageX - items.offsetLeft;
+    scrollLeft = items.scrollLeft;
+    e.preventDefault(); // Prevent text selection
+});
+
+items.addEventListener('mouseleave', () => {
+    isDown = false;
+    items.classList.remove('active');
+});
+
+items.addEventListener('mouseup', () => {
+    isDown = false;
+    items.classList.remove('active');
+});
+
+items.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - items.offsetLeft;
+    const walk = (x - startX) * 3; //scroll-fast
+    items.scrollLeft = scrollLeft - walk;
+});
+
+items.addEventListener('touchstart', (e) => {
+    isDown = true;
+    items.classList.add('active');
+    startX = e.touches[0].pageX - items.offsetLeft;
+    scrollLeft = items.scrollLeft;
+});
+
+items.addEventListener('touchend', () => {
+    isDown = false;
+    items.classList.remove('active');
+});
+
+items.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - items.offsetLeft;
+    const walk = (x - startX) * 3; //scroll-fast
+    items.scrollLeft = scrollLeft - walk;
+});
+
+  </script>
+
+
+  <section class="home">
+    <div class="wrapper flex">
+      <div class="left">
+        <h2>Welcome to Leafy Apple LLP HR Solutions</h1>
+        <p> At Leafy Apple LLP, we understand that the heart of any successful organization lies in its people. With a combined experience of over 3 years in the HR industry, our mission is to empower businesses of all sizes to harness the full potential of their workforce through innovative HR solutions tailored to their unique needs.</p>
+        <button>Get Service</button>
+      </div>
+      <div class="right">
+        <img src="image\zc.png" alt="">
+      </div>
+    </div>
+  </section>
+
+
+  
+<section class="about" id="about">
+    <h2>About Us</h2>
+    <div class="wrapper-container">
+        <div class="wrapper">
+            <div class="left">
+                <p>At Leafy Apple LLP, we are committed to providing comprehensive HR solutions to organizations of all sizes. With our expertise in HR shared services, statutory compliance, payroll outsourcing, recruitment, learning & development, and more, we help businesses streamline their HR processes and achieve their goals.</p>
+            </div>
+            <div class="right">
+                <img src="image\as.png" alt="Vector Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+ <section class="service-title" id=services>
+    <h2>Our Services</h2>
+</section>
+<section class="service">
+    <div class="wrapper">
+        <div class="items grid">
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>HR Shared Services</h3>
+                    <p>Simplify your HR operations with our comprehensive HR shared services, including employee data management, HR helpdesk, and employee self-service portals.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Statutory Compliance</h3>
+                    <p>Stay compliant with ever-changing regulations and laws. Our experts ensure that your organization meets all statutory requirements, reducing the risk of legal issues.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Payroll Outsourcing</h3>
+                    <p>Streamline your payroll process and ensure accurate and timely payments with our payroll outsourcing services.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Recruitment</h3>
+                    <p>Find top talent efficiently with our recruitment solutions. We handle the entire recruitment lifecycle, from job postings to candidate selection, to ensure you get the best fit for your organization.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Learning & Development</h3>
+                    <p>Invest in the growth and development of your workforce with our learning and development programs. From customized training modules to leadership development, we help your employees reach their full potential.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Industrial Relations (IR) Issues</h3>
+                    <p>Address industry-related IR issues effectively with our specialized expertise. Whether it's resolving disputes, managing grievances, or negotiating agreements, we ensure smooth relations between management and employees.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-smile"></i>
+                    <h3>Employee Engagement</h3>
+                    <p>Boost productivity and morale with our employee engagement strategies, including surveys, feedback mechanisms, and team-building activities.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Performance Management</h3>
+                    <p>Drive performance and accountability with our performance management solutions, including goal setting, performance reviews, and recognition programs.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>HR Analytics</h3>
+                    <p>Make informed decisions with our HR analytics services, providing insights into workforce trends, productivity, and areas for improvement.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-people-arrows"></i>
+                    <h3>Outplacement Services</h3>
+                    <p>Support employees during transitions with our outplacement services, helping them navigate career changes and providing resources for their next steps.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Apprenticeship Programs</h3>
+                    <p>We offer apprenticeship programs for college and institution students, providing them with valuable hands-on experience in a real-world work environment.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <i class="fas fa-building"></i>
+                    <h3>Industry Visits</h3>
+                    <p>Enhance students' understanding of industry practices and processes with our organized industry visits. We arrange insightful tours to various companies, giving students firsthand exposure to different industries.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="why-choose-us">
+  <div class="wrapper">
+    <h2>Why Choose Us</h2>
+    <div class="items grid">
+      <div class="box">
+        <div class="text">
+          <h3><i class="fas fa-user-tie"></i> Experience</h3>
+          <p>With a total experience of over 3 years in the HR industry, we have the knowledge and expertise to address your unique HR challenges and help you achieve your goals.</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="text">
+          <h3><i class="fas fa-box"></i> Comprehensive Solutions</h3>
+          <p>From HR shared services to learning and development, we offer a comprehensive range of HR solutions to meet all your needs under one roof.</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="text">
+          <h3><i class="fas fa-clock"></i> Efficiency and Accuracy</h3>
+          <p>We prioritize efficiency and accuracy in all our services, allowing you to focus on your core business while we handle the HR tasks efficiently.</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="text">
+          <h3><i class="fas fa-handshake"></i> Client Satisfaction</h3>
+          <p>We are committed to providing the highest level of service and satisfaction to our clients, building long-lasting partnerships based on trust and reliability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+
+
+
+
+
+
+<section class="our-clients-title">
+  <div class="wrapper">
+    <h2>Our Clients</h2>
+  </div>
+</section>
+
+<section class="our-clients">
+  <div class="wrapper">
+    <p>These are some of our customers who have helped us by using our product.</p>
+    <div class="client-logos">
+      <div class="client">WebEmpire</div>
+      <div class="client">EcoGreen Infrastructure</div>
+      <div class="client">Bhargav Interiors</div>
+      <div class="client">A&A Construction & Services</div>
+      <div class="client">RoadLink</div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="additional-perks-title">
+  <div class="wrapper">
+    <h2>Additional Perks of Choosing Us</h2>
+  </div>
+</section>
+
+<section class="additional-perks">
+  <div class="wrapper">
+    <div class="perks-content">
+      <div class="perks-image">
+        <img src="https://img.freepik.com/premium-photo/financial-planning-tips_810293-178373.jpg?w=996" alt="Financial Planning Tips">
+      </div>
+      <div class="perks-text">
+        <ul>
+          <li class="perk">
+            <div class="perk-title">
+              <span>Dedicated Account Manager</span>
+              <div class="toggle-icon">+</div>
+            </div>
+            <div class="perk-content">
+              Each client is assigned a dedicated account manager who serves as a single point of contact for all HR related inquiries and needs.
+            </div>
+          </li>
+          <li class="perk">
+            <div class="perk-title">
+              <span>Customized Solutions</span>
+              <div class="toggle-icon">+</div>
+            </div>
+            <div class="perk-content">
+              We understand that every organization is unique. That's why we tailor our HR solutions to fit your specific requirements and objectives.
+            </div>
+          </li>
+          <li class="perk">
+            <div class="perk-title">
+              <span>Scalability</span>
+              <div class="toggle-icon">+</div>
+            </div>
+            <div class="perk-content">
+              Whether you're a small startup or a large enterprise, our services are designed to scale with your business as it grows and evolves.
+            </div>
+          </li>
+          <li class="perk">
+            <div class="perk-title">
+              <span>Cost-Effective</span>
+              <div class="toggle-icon">+</div>
+            </div>
+            <div class="perk-content">
+              Our services are cost-effective, helping you save both time and money compared to managing HR tasks in-house.
+            </div>
+          </li>
+          <li class="perk">
+            <div class="perk-title">
+              <span>Continuous Support</span>
+              <div class="toggle-icon">+</div>
+            </div>
+            <div class="perk-content">
+              We provide ongoing support to ensure that your HR processes run smoothly and efficiently at all times.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+  <section class="our_service" id=services>
+    <div class="wrapper">
+      <h2>Our Service</h2>
+
+      <div class="items grid">
+        <div class="box">
+          <div class="img">
+            <img src="image/w1.jpeg" alt="">
+          </div>
+          <div class="text">
+            <h3>SEO Optimization</h3>
+            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="image/w2.jpeg" alt="">
+          </div>
+          <div class="text">
+            <h3>SEO Optimization</h3>
+            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button>Read More</button>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="image/w3.jpeg" alt="">
+          </div>
+          <div class="text">
+            <h3>SEO Optimization</h3>
+            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button>Read More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Newsletter">
+    <div class="wrapper">
+      <h2>Newsletter</h2>
+      <input type="text" placeholder="Your email Requets">
+      <a class="submit">SEND</a>
+    </div>
+  </section>
+
+  <section class="team" id=team>
+    <div class="wrapper">
+      <h2>Our Team</h2>
+      <p> Aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+      <div class="items grid">
+        <div class="box">
+          <img src="image/c1.jpg">
+          <h3>Alex Ander</h3>
+          <span>GRAPHIC DESIGNER</span> <br>
+          <button>Read More</button>
+        </div>
+        <div class="box">
+          <img src="image/c2.jpg">
+          <h3>Alex Ander</h3>
+          <span>GRAPHIC DESIGNER</span> <br>
+          <button>Read More</button>
+        </div>
+        <div class="box">
+          <img src="image/c3.jpg">
+          <h3>Alex Ander</h3>
+          <span>GRAPHIC DESIGNER</span> <br>
+          <button>Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+ -->
+
+
+  <section class="contact" id=Contact>
+    <div class="wrapper">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name">
+        <input type="text" placeholder="Your Email">
+        <input type="text" placeholder="Phone Number">
+        <textarea name="name" rows="5" cols="80"placeholder="Type Message Here..."> </textarea>
+        <a class="submit">SEND</a>
+      </form>
+    </div>
+  </section>
+
+ <footer>
+  <div class="wrapper">
+    <div class="tems grid">
+      <div class="footer-box">
+        <h3>Contact Information</h3>
+        <p><strong>Address - </strong> 
+        <br>Urban Estate, 270 , Sector 40 <br> Gurugram, Haryana, 122001</p>
+        <p><strong>Reach out to us -</strong> <br>+91-8882779923<br> (All Days, 9AM to 12AM)</p>
+        <a href="mailto:info@leafyapple.in"><strong>Mail us at -</strong> <br>info@leafyapple.in</a>
+      </div>
+      <div class="footer-box">
+        <h3>Navigation</h3>
+        <a href="index.html">Home</a><br>
+        <a href="#about">About Us</a><br>
+        <a href="#services">Service</a><br>
+        <a href="#contact">Contact Us</a><br>
+      </div>
+      <div class="footer-box follow-us">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-twitter"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
